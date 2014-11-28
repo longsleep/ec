@@ -60,10 +60,9 @@ static int ec_command_dev(int command, int version,
 	s_cmd.command = command;
 	s_cmd.version = version;
 	s_cmd.result = 0xff;
+	memcpy(s_cmd.outdata, outdata, outsize);
 	s_cmd.outsize = outsize;
-	s_cmd.outdata = (uint8_t *)outdata;
 	s_cmd.insize = insize;
-	s_cmd.indata = indata;
 
 	r = ioctl(fd, CROS_EC_DEV_IOCXCMD, &s_cmd);
 	if (r < 0) {
@@ -84,6 +83,7 @@ static int ec_command_dev(int command, int version,
 		return -EECRESULT - s_cmd.result;
 	}
 
+	memcpy(indata, s_cmd.indata, insize);
 	return r;
 }
 
@@ -97,8 +97,8 @@ static int ec_readmem_dev(int offset, int bytes, void *dest)
 	if (!fake_it) {
 		s_mem.offset = offset;
 		s_mem.bytes = bytes;
-		s_mem.buffer = dest;
 		r = ioctl(fd, CROS_EC_DEV_IOCRDMEM, &s_mem);
+		memcpy(dest, s_mem.buffer, bytes);
 		if (r < 0 && errno == ENOTTY)
 			fake_it = 1;
 		else
