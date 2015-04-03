@@ -1,5 +1,5 @@
 Source: ectool
-Section: unknown
+Section: utils
 Priority: optional
 Maintainer: Simon Eisenmann <simon@longsleep.org>
 Build-Depends: debhelper (>= 9)
