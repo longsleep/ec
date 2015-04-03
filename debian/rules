@@ -5,6 +5,6 @@ include /usr/share/dpkg/default.mk
 %:
 	dh $@
 
-override_dh_make:
-	BOARD=link CROSS_COMPILE= HOST_CROSS_COMPILE= build/link/util/ectool
+override_dh_auto_build:
+	make BOARD=link CROSS_COMPILE= HOST_CROSS_COMPILE= build/link/util/ectool
 
