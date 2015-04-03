@@ -1,0 +1,10 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/default.mk
+
+%:
+	dh $@
+
+override_dh_make:
+	BOARD=link CROSS_COMPILE= HOST_CROSS_COMPILE= build/link/util/ectool
+

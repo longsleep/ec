@@ -1,0 +1,14 @@
+Source: ectool
+Section: unknown
+Priority: optional
+Maintainer: Simon Eisenmann <simon@longsleep.org>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+#Vcs-Git: https://chromium.googlesource.com/chromiumos/platform/ec/
+#Vcs-Browser: https://chromium.googlesource.com/chromiumos/platform/ec/.git;a=summary
+
+Package: ectool
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Chrome OS Embedded Controller util
+ Chrome OS Embedded Controller util

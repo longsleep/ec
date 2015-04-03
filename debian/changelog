@@ -1,0 +1,5 @@
+ectool (1.7.0-1) trusty; urgency=low
+
+  * Initial packaging of ectool.
+
+ -- Simon Eisenmann <simon@longsleep.org>  Fri, 03 Apr 2015 20:50:58 +0200
