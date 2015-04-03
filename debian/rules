@@ -8,3 +8,6 @@ include /usr/share/dpkg/default.mk
 override_dh_auto_build:
 	make BOARD=link CROSS_COMPILE= HOST_CROSS_COMPILE= build/link/util/ectool
 
+override_dh_auto_clean:
+	make clean
+	rm -rf build/
